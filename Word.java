@@ -1,5 +1,5 @@
 package test;
-
+import java.util.*;
 
 public class Word {
     private Tile[] tiles;
