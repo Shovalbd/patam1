@@ -1,6 +1,5 @@
 package test;
 
-
 public class Tile {
     public final  char letter;
     public final  int score;
@@ -8,20 +7,15 @@ public class Tile {
         this.letter=letter;
         this.score=score;
     }
-
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof Tile)) return false;
-        if (!super.equals(object)) return false;
-        Tile tile = (Tile) object;
-        return letter == tile.letter && score == tile.score;
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), letter, score);
-    }
+        if (object == null || getClass()!= object.getClass()) return false;
+        Tile other = (Tile)object;
+        if (other.score != this.score||other.letter != this.letter ) return false;
+        return true;
 
+    }
     public static class Bag{
         private final int[] max_quantity;
         private int[] quantity;

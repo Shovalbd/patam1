@@ -54,6 +54,7 @@ public class Board {
     private boolean onStar(Word w) {
         int i=w.getRow();
         int j=w.getCol();
+        //for(int k = 0; k <w.getTiles().length; k++) {
         for(@SuppressWarnings("unused") Tile t: w.getTiles()) {
             if(i==7 && j==7)
                 return true;
@@ -67,13 +68,17 @@ public class Board {
 
     private boolean crossTile(Word w) {
         int i=w.getRow(),j=w.getCol();
-        for(@SuppressWarnings("unused") Tile t: w.getTiles())
-        {
+        for(@SuppressWarnings("unused") Tile t: w.getTiles()){
+
             if(tiles[i][j]!=null ||
                     (inBoard(i+1, j) 	&& tiles[i+1][j]!=null)   ||
+                    // (inBoard(i+1, j+1) 	&& tiles[i+1][j+1]!=null) ||
                     (inBoard(i, j+1) 	&& tiles[i][j+1]!=null)   ||
+                    // (inBoard(i-1, j+1) 	&& tiles[i-1][j+1]!=null) ||
                     (inBoard(i-1, j) 	&& tiles[i-1][j]!=null)   ||
-                    (inBoard(i, j-1) 	&& tiles[i][j-1]!=null))
+                    // (inBoard(i-1, j-1) 	&& tiles[i-1][j-1]!=null) ||
+                    (inBoard(i, j-1) 	&& tiles[i][j-1]!=null))   //||
+                //(inBoard(i+1, j-1) 	&& tiles[i+1][j-1]!=null))
                 return true;
 
             if(w.isVertical()) i++; else j++;
@@ -101,8 +106,7 @@ public class Board {
         if(w.isVertical()) {
             vCol=col;
             vRow=row+w.getTiles().length-1;
-        }
-        else {
+        }else {
             vRow=row;
             vCol=col+w.getTiles().length-1;
         }
@@ -258,6 +262,4 @@ public class Board {
         return sum;
     }
 }
-
-
 
