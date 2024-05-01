@@ -15,26 +15,14 @@ public class Word {
     public Tile[] getTiles() {
         return tiles;
     }
-    public void setTiles(Tile[] tiles) {
-        this.tiles = tiles;
-    }
     public int getRow() {
         return row;
-    }
-    public void setRow(int row) {
-        this.row = row;
     }
     public int getCol() {
         return col;
     }
-    public void setCol(int col) {
-        this.col = col;
-    }
     public boolean isVertical() {
         return vertical;
-    }
-    public void setVertical(boolean vertical) {
-        this.vertical = vertical;
     }
     public boolean equals(Object obj) {
         if (this == obj) return true;
