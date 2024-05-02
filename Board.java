@@ -3,19 +3,19 @@ package test;
 import java.util.ArrayList;
 
 public class Board {
-    private final int dl;
-    private final int  dw;
-    private final int tl;
-    private final int tw;
+    private final int dl; // double letter
+    private final int  dw;// triple letter
+    private final int tl; // double word
+    private final int tw; // triple word
     private boolean isEmpty;
     private final int[][] bonus;
     private Tile[][] tiles;
     public static Board b=null;
     private Board(){
-        this.dl=2;	// double letter
-        this.tl=3;	// triple letter
-        this.dw=20;	// double word
-        this.tw=30;	// triple word
+        this.dl=2;
+        this.tl=3;
+        this.dw=20;
+        this.tw=30;
         this.isEmpty=true;
         this.tiles= new Tile[15][15];
         this.bonus= new int[][] {
@@ -54,7 +54,6 @@ public class Board {
     private boolean onStar(Word w) {
         int i=w.getRow();
         int j=w.getCol();
-        //for(int k = 0; k <w.getTiles().length; k++) {
         for(@SuppressWarnings("unused") Tile t: w.getTiles()) {
             if(i==7 && j==7)
                 return true;
@@ -166,7 +165,7 @@ public class Board {
     }
     private ArrayList<Word> getAllWords(Tile[][] tiles){
         ArrayList<Word> words = new ArrayList<Word>();
-        //horizontal words
+        //horizontal
         for (int i=0;i<tiles[0].length;i++){
             int j=0;
             while(j<tiles[i].length){
